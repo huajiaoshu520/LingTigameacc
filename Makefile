@@ -18,13 +18,15 @@ define Package/$(PKG_NAME)
 endef
 
 define Package/$(PKG_NAME)/description
-LingTiGameAcc support for OpenWrt
+    LingTiGameAcc support for OpenWrt
 endef
 
 define Package/$(PKG_NAME)/install
-    # Install the .ipk package to the target system (for example, into /tmp)
+    # 安装 .ipk 包到目标系统 (例如，复制到 /tmp)
     $(INSTALL_DIR) $(1)/tmp
     $(CP) ./lingti-gameacc.ipk $(1)/tmp/
+    # 自动安装 .ipk 包
+    opkg install $(1)/tmp/lingti-gameacc.ipk
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))

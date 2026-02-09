@@ -22,11 +22,11 @@ define Package/$(PKG_NAME)/description
 endef
 
 define Package/$(PKG_NAME)/install
-    # 安装 .ipk 包到目标系统 (例如，复制到 /tmp)
+    # 安装 .ipk 包到目标系统
     $(INSTALL_DIR) $(1)/tmp
     $(CP) ./lingti-gameacc.ipk $(1)/tmp/
-    # 自动安装 .ipk 包
-    opkg install $(1)/tmp/lingti-gameacc.ipk
+    # 自动安装 .ipk 包到目标系统
+    $(INSTALL) $(1)/tmp/lingti-gameacc.ipk $(1)/
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))

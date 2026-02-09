@@ -25,7 +25,7 @@ define Package/$(PKG_NAME)/install
     # 安装 .ipk 包到目标系统
     $(INSTALL_DIR) $(1)/tmp
     $(CP) ./lingti-gameacc.ipk $(1)/tmp/
-    # 自动安装 .ipk 包到目标系统
+    # 自动安装 .ipk 包
     $(INSTALL) $(1)/tmp/lingti-gameacc.ipk $(1)/
 endef
 
